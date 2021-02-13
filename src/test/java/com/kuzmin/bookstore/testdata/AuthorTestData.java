@@ -1,6 +1,6 @@
 package com.kuzmin.bookstore.testdata;
 
-import com.kuzmin.bookstore.domain.Author;
+import com.kuzmin.bookstore.domain.entity.Author;
 
 import java.util.Collections;
 

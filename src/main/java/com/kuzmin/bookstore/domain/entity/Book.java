@@ -1,5 +1,6 @@
-package com.kuzmin.bookstore.domain;
+package com.kuzmin.bookstore.domain.entity;
 
+import com.kuzmin.bookstore.domain.enums.Genre;
 import lombok.Data;
 
 import javax.persistence.*;

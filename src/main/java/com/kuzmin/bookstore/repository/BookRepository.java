@@ -1,6 +1,6 @@
 package com.kuzmin.bookstore.repository;
 
-import com.kuzmin.bookstore.domain.Book;
+import com.kuzmin.bookstore.domain.entity.Book;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 

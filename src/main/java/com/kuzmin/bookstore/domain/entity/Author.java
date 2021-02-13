@@ -1,4 +1,4 @@
-package com.kuzmin.bookstore.domain;
+package com.kuzmin.bookstore.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

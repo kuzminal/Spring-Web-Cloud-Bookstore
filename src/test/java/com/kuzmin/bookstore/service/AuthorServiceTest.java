@@ -1,7 +1,6 @@
 package com.kuzmin.bookstore.service;
 
-import com.kuzmin.bookstore.domain.Author;
-import com.kuzmin.bookstore.repository.AuthorRepository;
+import com.kuzmin.bookstore.domain.entity.Author;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

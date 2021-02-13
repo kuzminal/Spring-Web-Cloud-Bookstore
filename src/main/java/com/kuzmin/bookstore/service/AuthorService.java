@@ -1,6 +1,6 @@
 package com.kuzmin.bookstore.service;
 
-import com.kuzmin.bookstore.domain.Author;
+import com.kuzmin.bookstore.domain.entity.Author;
 import com.kuzmin.bookstore.repository.AuthorRepository;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;

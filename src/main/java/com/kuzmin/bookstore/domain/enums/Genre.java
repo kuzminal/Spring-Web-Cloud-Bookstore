@@ -1,4 +1,4 @@
-package com.kuzmin.bookstore.domain;
+package com.kuzmin.bookstore.domain.enums;
 
 public enum Genre {
     FICTION,
