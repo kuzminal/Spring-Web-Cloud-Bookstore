@@ -1,18 +1,11 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/bookstore
-    username: user
-    password: 123
-    driver-class-name: org.postgresql.Driver
-    #    initialization-mode: always
-    hikari:
-      connection-timeout: 20000
-      maximum-pool-size: 20
-      pool-name: bookstore-pool
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: bookstore
+      auto-index-creation: true
+
   jpa:
-    properties:
-      hibernate:
-        default_schema: books
     hibernate:
       ddl-auto: update
-    show-sql: true

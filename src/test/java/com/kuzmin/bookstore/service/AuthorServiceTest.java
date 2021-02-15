@@ -23,6 +23,6 @@ public class AuthorServiceTest {
     public void getAuthor(){
         Author storedAuthor = authorService.saveAuthor(AUTHOR1);
         Author author = authorService.getAuthorById(storedAuthor.getId());
-        assertThat(author).isEqualToIgnoringGivenFields(AUTHOR1,"id", "books");
+        assertThat(author).isEqualToIgnoringGivenFields(AUTHOR1,"id");
     }
 }

@@ -3,27 +3,26 @@ package com.kuzmin.bookstore.domain.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
-@Entity
+@Document(collection = "authors")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Author implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Indexed(name = "author_name", direction = IndexDirection.ASCENDING)
+    @TextIndexed
     private String name;
-
     private int age;
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "author_book",
-                joinColumns = @JoinColumn(name = "author_id"),
-                inverseJoinColumns = @JoinColumn(name = "book_id"))
-    private Set<Book> books = new HashSet<>();
+    //@Field("books")
+    //private Set<Book> books = new HashSet<>();
 }

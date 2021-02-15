@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bookstore</title>
+    <link th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<header th:replace="fragments/general.html :: header"></header>
+<main class="form-signin">
+    <form method="POST" th:action="@{/login}" id="loginForm">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+        <h1 class="h3 mb-3 fw-normal" th:text="#{login.form.title}">Please sign in</h1>
+        <div th:if="${param.error}">
+            <div class="alert alert-danger" th:text="#{login.form.invalidpass}">
+                Invalid username or password.
+            </div>
+        </div>
+        <label for="username" class="visually-hidden" th:text="#{login.form.username}">Username</label>
+        <input type="text" id="username" name="username" class="form-control"
+               th:placeholder="#{login.form.username.placeholder}" placeholder="Username" required autofocus>
+        <label for="password" class="visually-hidden" th:text="#{login.form.password}">Password</label>
+        <input type="password" id="password" name="password" class="form-control"
+               th:placeholder="#{login.form.password.placeholder}" placeholder="Password" required>
+        <!--        <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>-->
+        <button class="w-100 btn btn-lg btn-primary" type="submit" value="Login" th:text="#{navigation.signin}">Sign
+            in
+        </button>
+        <hr class="my-4">
+        <p><span th:text="#{login.form.register.click}"></span>
+            <a th:href="@{/registration}" th:text="#{login.form.register.link.text}">here</a>
+            <span th:text="#{login.form.register}"> to register.</span></p>
+        <hr class="my-4">
+        <!--<h4 class="mb-3">Войти с помощью:</h4>
+        <div class="container">
+            <a th:href="@{/oauth2/authorization/facebook}">
+                <img th:src="@{/images/f_logo_58.png}" height="58" width="58">
+            </a>
+        </div>
+        <hr class="my-4">-->
+    </form>
+</main>
+<div th:insert="fragments/general.html :: footer"></div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/validation.js}"></script>
+</body>
+</html>
