@@ -5,6 +5,7 @@ import com.kuzmin.bookstore.domain.i18n.MultiLangDocument;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -30,6 +31,7 @@ public class Book implements Serializable {
     private String isbn;
     private Genre genre;
     private String annotation;
+    private Binary cover;
     @Field("authors")
     private Set<Author> authors = new HashSet<>();
 }

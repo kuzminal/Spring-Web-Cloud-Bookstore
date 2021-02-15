@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static com.kuzmin.bookstore.testdata.BookTestData.BOOK1;
+import java.io.IOException;
+import static com.kuzmin.bookstore.testdata.BookTestData.getBook1;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
@@ -21,16 +22,16 @@ public class BookServiceTest {
     }
 
     @Test
-    public void getBook(){
-        Book storedAuthor = bookService.saveBook(BOOK1);
+    public void getBook() throws IOException {
+        Book storedAuthor = bookService.saveBook(getBook1());
         Book book = bookService.getBookById(storedAuthor.getId());
-        assertThat(book).isEqualToIgnoringGivenFields(BOOK1,"id", "authors");
+        assertThat(book).isEqualToIgnoringGivenFields(getBook1(),"id", "authors");
     }
 
     @Test
-    public void getBookByAuthor(){
-        Book storedBook = bookService.saveBook(BOOK1);
+    public void getBookByAuthor() throws IOException {
+        Book storedBook = bookService.saveBook(getBook1());
         Book book = bookService.getBookByAuthorName("Alex");
-        assertThat(book).isEqualToIgnoringGivenFields(BOOK1,"id", "authors");
+        assertThat(book).isEqualToIgnoringGivenFields(getBook1(),"id", "authors");
     }
 }

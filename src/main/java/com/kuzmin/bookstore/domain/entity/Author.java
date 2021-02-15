@@ -3,6 +3,7 @@ package com.kuzmin.bookstore.domain.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -23,6 +24,7 @@ public class Author implements Serializable {
     @TextIndexed
     private String name;
     private int age;
+    private Binary photo;
     //@Field("books")
     //private Set<Book> books = new HashSet<>();
 }

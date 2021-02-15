@@ -1,13 +1,16 @@
 package com.kuzmin.bookstore.service;
 
 import com.kuzmin.bookstore.domain.entity.Author;
+import com.kuzmin.bookstore.testdata.AuthorTestData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static com.kuzmin.bookstore.testdata.AuthorTestData.AUTHOR1;
+import java.io.IOException;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static com.kuzmin.bookstore.testdata.AuthorTestData.getAuthor1;
 
 @SpringBootTest
 public class AuthorServiceTest {
@@ -20,9 +23,9 @@ public class AuthorServiceTest {
     }
 
     @Test
-    public void getAuthor(){
-        Author storedAuthor = authorService.saveAuthor(AUTHOR1);
+    public void getAuthor() throws IOException {
+        Author storedAuthor = authorService.saveAuthor(getAuthor1());
         Author author = authorService.getAuthorById(storedAuthor.getId());
-        assertThat(author).isEqualToIgnoringGivenFields(AUTHOR1,"id");
+        assertThat(author).isEqualToIgnoringGivenFields(getAuthor1(),"id");
     }
 }
