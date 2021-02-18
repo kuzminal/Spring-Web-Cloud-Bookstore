@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -24,7 +25,7 @@ import java.util.Collection;
 public class User implements UserDetails {
     private static final long serialVersionUID = 1L;
     @Id
-    private Long id;
+    private ObjectId id;
     @Indexed(name = "username", direction = IndexDirection.ASCENDING)
     private final String username;
     private final String password;

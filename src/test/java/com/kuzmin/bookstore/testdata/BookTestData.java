@@ -5,6 +5,7 @@ import com.kuzmin.bookstore.domain.enums.Genre;
 import com.kuzmin.bookstore.domain.i18n.MultiLangDocument;
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
+import org.bson.types.ObjectId;
 
 import java.io.*;
 import java.util.Set;
@@ -25,7 +26,7 @@ public class BookTestData {
 
     public static Book getBook1() throws IOException {
         Book book1 = new Book(
-                1L,
+                new ObjectId(),
                 Set.of(new MultiLangDocument("ru", "Властелин колец"),
                         new MultiLangDocument("en", "Lord of The Rings")),
                 "1bdw3ff", Genre.FANTASY, "Best book", getCover(), Set.of(getAuthor1()));

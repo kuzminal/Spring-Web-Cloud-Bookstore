@@ -1,16 +1,18 @@
 package com.kuzmin.bookstore.domain.entity;
 
+import com.kuzmin.bookstore.domain.i18n.MultiLangDocument;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.Binary;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.IndexDirection;
-import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Document(collection = "authors")
 @Data
@@ -19,12 +21,12 @@ import java.io.Serializable;
 public class Author implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    private Long id;
-    @Indexed(name = "author_name", direction = IndexDirection.ASCENDING)
+    private ObjectId id;
     @TextIndexed
-    private String name;
+    private Set<MultiLangDocument> name;
     private int age;
-    private Binary photo;
-    //@Field("books")
-    //private Set<Book> books = new HashSet<>();
+    //private Binary photo;
+    @Transient
+    private String imgData;
+    private String imgId;
 }

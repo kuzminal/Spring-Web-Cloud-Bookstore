@@ -1,11 +1,14 @@
 package com.kuzmin.bookstore.testdata;
 
 import com.kuzmin.bookstore.domain.entity.Author;
+import com.kuzmin.bookstore.domain.i18n.MultiLangDocument;
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
+import org.bson.types.ObjectId;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Set;
 
 public class AuthorTestData {
     public static Binary getPhoto() throws IOException {
@@ -20,7 +23,10 @@ public class AuthorTestData {
 
     public static Author getAuthor1() throws IOException {
         return new Author(
-                1L, "Alex", 20, getPhoto()
+                new ObjectId(),
+                Set.of(new MultiLangDocument("ru", "Алексей Кузьмин"),
+                new MultiLangDocument("en", "Aleksey Kuzmin")),
+                20, "", ""
         );
     }
 }

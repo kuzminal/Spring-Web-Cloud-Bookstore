@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.Binary;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -24,7 +25,7 @@ import java.util.Set;
 public class Book implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    private Long id;
+    private ObjectId id;
     @TextIndexed
     private Set<MultiLangDocument> title;
     @Indexed(name = "isbn", direction = IndexDirection.ASCENDING)
@@ -32,6 +33,5 @@ public class Book implements Serializable {
     private Genre genre;
     private String annotation;
     private Binary cover;
-    @Field("authors")
     private Set<Author> authors = new HashSet<>();
 }
