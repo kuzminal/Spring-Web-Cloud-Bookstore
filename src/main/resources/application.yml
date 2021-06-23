@@ -9,6 +9,11 @@ spring:
       connection-timeout: 20000
       maximum-pool-size: 20
       pool-name: bookstore-pool
+  cache:
+    type: redis
+    redis:
+      host: localhost
+      port: 6379
   jpa:
     properties:
       hibernate:
